@@ -1,0 +1,56 @@
+{
+  "name": "micro_multi_services",
+  "version": "0.0.1",
+  "description": "versatile microservices written with NODE.JS ",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "start:dev": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/server.js",
+    "serve:prod": "NODE_ENV=production node dist/server.js",
+    "install:server": "npm install bcryptjs jsonwebtoken koa",
+    "install:cache": "npm install redis",
+    "install:utils": "npm install lodash validator",
+    "install:db": "npm install mongodb pg",
+    "install:graphql": "npm install apollo-server-koa merge-graphql-schemas graphql graphql-iso-date graphql-tools graphql-type-json",
+    "install:gateway": "npm install nats kafka",
+    "install:test": "npm install --save-dev nodemon mocha chai supertest pupetteer",
+    "install:lint": "npm install --save-dev eslint eslint-config-airbnb-base eslint-plugin-import lint-staged husky",
+    "install:babel": "npm install --save-dev @babel/preset-typescript @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread @babel/core @babel/cli @babel/preset-env @babel/node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ddkino/mmss.git"
+  },
+  "keywords": [
+    "nodejs",
+    "message",
+    "queueing",
+    "nats",
+    "http2"
+  ],
+  "author": "DD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ddkino/mmss/issues"
+  },
+  "homepage": "https://github.com/ddkino/mmss#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.16.4",
+    "hapi": "^17.6.0",
+    "jsonwebtoken": "^8.3.0",
+    "koa": "^2.6.1"
+  }
+}
