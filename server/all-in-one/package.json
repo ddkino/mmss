@@ -11,12 +11,12 @@
     "serve:prod": "NODE_ENV=production node dist/server.js",
     "install:server": "npm install bcryptjs jsonwebtoken koa",
     "install:cache": "npm install redis",
-    "install:utils": "npm install lodash validator",
+    "install:utils": "npm install lodash validator nodeenv",
     "install:db": "npm install mongodb pg",
     "install:graphql": "npm install apollo-server-koa merge-graphql-schemas graphql graphql-iso-date graphql-tools graphql-type-json",
     "install:gateway": "npm install nats kafka",
     "install:test": "npm install --save-dev nodemon mocha chai supertest pupetteer",
-    "install:lint": "npm install --save-dev eslint eslint-config-airbnb-base eslint-plugin-import lint-staged husky",
+    "install:lint": "npm install --save-dev eslint eslint-plugin-node eslint-config-airbnb-base eslint-plugin-import lint-staged husky prettier ",
     "install:babel": "npm install --save-dev @babel/preset-typescript @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread @babel/core @babel/cli @babel/preset-env @babel/node"
   },
   "repository": {
