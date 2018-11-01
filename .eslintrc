@@ -12,5 +12,8 @@
   ],
   "plugins": [
     "import"
-  ]
+  ],
+  "rules": {
+    "indent": 1
+  }
 }
