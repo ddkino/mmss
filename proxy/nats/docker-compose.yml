@@ -1,0 +1,47 @@
+version: '3.4'
+
+networks: 
+  natsring:
+    driver: bridge
+
+services:
+# todo consul
+  nats-1:
+    container_name: nats-1
+    image: nats:latest
+    volumes:
+      - type: bind
+        source: ./nats.00.conf
+        target: /gnatsd.conf
+    ports:
+        - '127.0.0.1:4222:4222'
+        - '127.0.0.1:6222:6222'
+        - '127.0.0.1:8222:8222'
+    networks: 
+      - natsring
+    environment:
+      - SERVICE_NAME=natsA
+      - SERVICE_TAGS=nats
+    # command: ["-c", "gnatsd.conf"]
+    command: ["-c", "gnatsd.conf", "-DV"]
+  nats-2:
+    image: nats:latest
+    container_name: nats-2
+    volumes:
+      - type: bind
+        source: ./nats.01.conf
+        target: /gnatsd.conf
+    ports:
+        - '127.0.0.1:4223:4222'
+        - '127.0.0.1:6223:6222'
+        - '127.0.0.1:8223:8222'
+    networks: 
+      - natsring
+    environment: # optional for testing discovery
+      - SERVICE_NAME=natsB
+      - SERVICE_TAGS=nats
+    depends_on: 
+      - nats-1
+    ## routes must be explicit with conatiner name !
+    # command: ["-c", "gnatsd.conf", "-DV", "--routes", "nats-route://ruser:T0pS3cr3t@nats-1:6222"]
+    command: ["-c", "gnatsd.conf", "-DV"]

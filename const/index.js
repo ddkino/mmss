@@ -1,25 +1,16 @@
 // import moment from 'moment';
 
-export const SERVER = {
-  http: process.env.HTTP,
-  appName: process.env.APP_NAME,
-  logType: process.env.LOGTYPE,
-  port: process.env.PORT,
-  hostname: process.env.HOSTNAME,
-  emailFrom: process.env.EMAIL_FROM,
-  pathValidation: process.env.VALIDATION,
-  userId: process.env.USER_ID || undefined,
-};
-
 export const EMAIL = {
   from: process.env.EMAIL_FROM,
 };
-
-export const NATS = {
-  ports: String(process.env.NATS_PORT).split(','),
-  hosts: String(process.env.NATS_HOST).split(','),
-  user: process.env.NATS_USER,
-  password: process.env.NATS_PASSWORD,
+/**
+ * Each year change crypto
+ */
+export const CRYPTO = {
+  // current year
+  secret: process.env.CRYPTO_SECRET || 'ù=*ç_(é....? "#{',
+  //
+  old_2017: process.env.CRYPTO_old2017 || '',
 };
 
 export const GRAPHQL = {
@@ -34,14 +25,37 @@ export const GRAPHQL = {
     message: error.message,
   }),
 };
-/**
- * Each year change crypto
- */
-export const CRYPTO = {
-  // current year
-  secret: process.env.CRYPTO_SECRET || 'ù=*ç_(é....? "#{',
-  //
-  old_2017: process.env.CRYPTO_old2017 || '',
+
+export const MONGO = {
+  port: process.env.MONGO_PORT,
+  host: process.env.MONGO_HOST,
+  user: process.env.MONGO_USER,
+  password: process.env.MONGO_PASSWORD,
+  db: process.env.MONGO_DB,
+};
+
+export const NATS = {
+  ports: String(process.env.NATS_PORT).split(','),
+  hosts: String(process.env.NATS_HOST).split(','),
+  user: process.env.NATS_USER,
+  password: process.env.NATS_PASSWORD,
+};
+
+export const REDIS = {
+  port: process.env.REDIS_PORT,
+  host: process.env.REDIS_HOST,
+  password: process.env.REDIS_PASSWORD,
+  db: process.env.REDIS_DB,
+};
+
+export const SERVER = {
+  http: process.env.HTTP,
+  appName: process.env.APP_NAME,
+  logType: process.env.LOGTYPE,
+  port: process.env.PORT,
+  hostname: process.env.HOSTNAME,
+  pathValidation: process.env.VALIDATION,
+  userId: process.env.USER_ID || undefined,
 };
 
 /**
